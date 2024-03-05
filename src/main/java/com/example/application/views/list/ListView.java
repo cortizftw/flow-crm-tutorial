@@ -48,7 +48,7 @@ public class ListView extends VerticalLayout {
         filterText.setVisible(true);
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
 
-        Button button = new Button();
+        Button button = new Button("Add Button");
 
         var toolbar = new HorizontalLayout(filterText, button);
         toolbar.addClassName("toolbar");
