@@ -10,38 +10,36 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
+
 import java.util.List;
 
 public class ContactForm extends FormLayout {
-    TextField firstName=new TextField("First Name");
-    TextField lastName=new TextField("Last Name");
-    EmailField email=new EmailField("Email");
 
-    ComboBox<Status> status=new ComboBox<>("Status");
-    ComboBox<Company> company=new ComboBox<>("Company");
 
-    Button save=new Button("Save");
-    Button delete=new Button("Delete");
-    Button cancel=new Button("Cancel");
+    TextField firstName = new TextField("First Name");
+    TextField lastName = new TextField("Last Name");
+    EmailField email = new EmailField("Email");
+    ComboBox<Company> company = new ComboBox<Company>("Company");
+    ComboBox<Status> status = new ComboBox<Status>("Status");
+    Button save = new Button("Save");
+    Button delete = new Button("Delete");
+    Button cancel = new Button("Cancel");
 
-    public ContactForm(List<Company> com,List<Status> stat)
-    {
+    public ContactForm(List<Company> com, List<Status> stat) {
         addClassName("contact-form");
         company.setItems(com);
         company.setItemLabelGenerator(Company::getName);
         status.setItems(stat);
         status.setItemLabelGenerator(Status::getName);
-        add(firstName,lastName,email,company,status,createButton());
-
+        add(firstName, lastName, email, company, status, createButton());
     }
 
-    private HorizontalLayout createButton()
-    {
+    private HorizontalLayout createButton() {
         save.addThemeVariants(ButtonVariant.LUMO_SUCCESS);
         delete.addThemeVariants(ButtonVariant.LUMO_ERROR);
         cancel.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
         save.addClickShortcut(Key.ENTER);
         cancel.addClickShortcut(Key.ESCAPE);
-        return new HorizontalLayout(save,delete,cancel);
+        return new HorizontalLayout(save, delete, cancel);
     }
 }
