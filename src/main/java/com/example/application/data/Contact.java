@@ -10,17 +10,17 @@ import jakarta.validation.constraints.*;
 public class Contact extends AbstractEntity {
 
     @NotEmpty
-    @Min(2)
-    @Max(50)
+    //@Min(2)
+    //@Max(50)
     private String firstName = "";
 
     @NotEmpty
     private String lastName = "";
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
+    //@JoinColumn(name = "company_id")
     @NotNull
-    @JsonIgnoreProperties({"employees"})
+    //@JsonIgnoreProperties({"employees"})
     private Company company;
 
     @NotNull
@@ -28,7 +28,7 @@ public class Contact extends AbstractEntity {
     private Status status;
 
     @Email
-    @NotEmpty
+    //@NotEmpty
     private String email = "";
 
     @Override

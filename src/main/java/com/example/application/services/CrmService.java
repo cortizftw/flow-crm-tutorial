@@ -24,14 +24,33 @@ public class CrmService {
         }
     }
 
+    //Find All Companies
     public List<Company> findAllCompanies()
     {
         return companyRepository.findAll();
     }
 
+    //Find All Statuses
     public List<Status> findAllStatuses()
     {
         return statusRepository.findAll();
     }
 
+    //Count Contacts
+    public long countContacts() {
+        return contactRepository.count();
+    }
+
+    //Delete Contact
+    public void deleteContact(Contact contact) {
+        contactRepository.delete(contact);
+    }
+
+    //Save Contact
+    public void saveContact(Contact contact) {
+        if (contact == null) {
+            return;
+        }
+        contactRepository.save(contact);
+    }
 }
